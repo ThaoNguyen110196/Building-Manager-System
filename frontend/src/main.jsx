@@ -5,7 +5,7 @@ import App from "./App.jsx";
 import { AuthWrapper } from "./components/share/Context.jsx";
 
 createRoot(document.getElementById("root")).render(
-  <AuthWrapper basename="/Building-Manager-System">
+  <AuthWrapper>
     <App />
   </AuthWrapper>
 );
