@@ -1,0 +1,46 @@
+package com.building_mannager_system.service.property_manager;
+
+
+import com.building_mannager_system.dto.requestDto.propertyDto.*;
+import com.building_mannager_system.service.system_service.ItemCheckService;
+import org.springframework.data.domain.Page;
+import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
+import java.util.List;
+
+@Service
+public class ItemCheckWithResultsService {
+    private final ItemCheckService itemCheckService;
+    private final ItemCheckResultService checkResultService;
+
+    public ItemCheckWithResultsService(ItemCheckService itemCheckService,
+                                       ItemCheckResultService checkResultService) {
+        this.itemCheckService = itemCheckService;
+        this.checkResultService = checkResultService;
+    }
+
+    public List<ItemCheckWithResultsDto> getAllItemChecksWithResultsByDeviceId(Long deviceId, int page, int size) {
+        Page<ItemCheckFlutterDto> itemChecks = itemCheckService.getAllItemChecksByDeviceId(deviceId,page,size);
+        List<ItemCheckWithResultsDto> resultList = new ArrayList<>();
+
+        for (ItemCheckFlutterDto item : itemChecks) {
+            Page<CheckResultFlutterDto> resultsPage = checkResultService.getResultsByCheckItemIdPaged(item.getId(), page, size);
+
+            ItemCheckWithResultsDto dto = new ItemCheckWithResultsDto(
+                    item.getId(),
+                    item.getCheckName(),
+                    item.getCheckCategory(),
+                    item.getStandard(),
+                    item.getFrequency(),
+                    resultsPage.getContent(),  // Danh sách kết quả theo trang
+                    resultsPage.getTotalPages(),  // Tổng số trang
+                    resultsPage.getTotalElements() // Tổng số phần tử
+            );
+            resultList.add(dto);
+        }
+
+        return resultList;
+    }
+
+}

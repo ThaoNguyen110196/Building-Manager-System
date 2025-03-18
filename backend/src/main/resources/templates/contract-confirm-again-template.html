@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Xác nhận hợp đồng lần 2</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f5f5f5;
+        }
+
+        table {
+            width: 600px;
+            margin: 20px auto;
+            border-collapse: collapse;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: #ffffff;
+            border-radius: 5px;
+        }
+
+        th {
+            height: 60px;
+            background-color: rgb(23, 37, 84);
+            color: #ffffff;
+            font-size: 20px;
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+            text-align: center;
+        }
+
+        td {
+            padding: 30px;
+            font-size: 14px;
+            color: #333;
+        }
+
+        a {
+            color: #1a73e8;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #1a73e8;
+            color: #ffffff;
+            border-radius: 5px;
+            text-decoration: none;
+            margin: 10px 0;
+        }
+
+        @media screen and (max-width: 768px) {
+            table {
+                width: 100%;
+            }
+            td {
+                padding: 20px;
+                font-size: 13px;
+            }
+        }
+    </style>
+</head>
+<body>
+<table>
+    <thead>
+    <tr>
+        <th>Xác nhận hợp đồng lần 2</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>
+            <p>Kính gửi <b><i><span th:text="${name}"></span></i></b>,</p>
+            <p>Chúng tôi xin gửi lời xin lỗi chân thành vì lần trước đã có sai sót trong hợp đồng của quý khách.</p>
+            <p>Để đảm bảo thông tin hợp đồng được chính xác, chúng tôi đã tiến hành điều chỉnh lại hợp đồng. Quý khách vui lòng đăng nhập vào hệ thống quản lý tài sản của <b>B-MS</b> để kiểm tra và xác nhận lại hợp đồng đã được cập nhật.</p>
+            <p><b>Thông tin đăng nhập:</b></p>
+            <ul>
+                <li>
+                    <b>Website:</b>
+                    <a href="http://localhost:3000/login" target="_blank" rel="noopener noreferrer">
+                        Click vào đây
+                    </a>
+                </li>
+            </ul>
+            <p>Nếu quý khách có bất kỳ thắc mắc hoặc cần hỗ trợ thêm, vui lòng liên hệ với chúng tôi qua số điện thoại <a href="tel:+0931313329">+0 931-313-329</a>.</p>
+            <p>Trân trọng,</p>
+            <p><small><i>Đây là tin nhắn tự động, vui lòng không trả lời trực tiếp email này.</i></small></p>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
